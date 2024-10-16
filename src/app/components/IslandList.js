@@ -1,15 +1,15 @@
-"use client"
+"use client";
 
 import Island from "./Island";
 
-function IslandList({ islands }) {
-  const islandCards = islands.map((island) => <Island key={island.id} island={island} />);
+function IslandList({ islands, onSelect }) {
+  const islandCards = islands.map((island) => (
+    <div key={island.id} onClick={() => onSelect(island)}>
+      <Island island={island} />
+    </div>
+  ));
 
-  return (
-
-    <div className="islandList">{islandCards}</div>
-
-  );
+  return <div className="islandList">{islandCards}</div>;
 }
 
-export default IslandList
+export default IslandList;
